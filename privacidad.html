@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacidad — Marrow Calendar</title>
+<meta name="description" content="Política de privacidad de Marrow Calendar: qué datos guarda la app, dónde viven y qué no hacemos con ellos.">
+<link rel="icon" href="assets/img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,360..600;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:    #111110;
+    --bg-hi: #1c1a17;
+    --ink:   #efece4;
+    --ink2:  #9a9790;
+    --ink3:  #6b6862;
+    --gold:  #c9a969;
+    --rule:  rgba(239,236,228,.13);
+    --serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    --sans:  'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.65;
+  }
+  img{ display:block; max-width:100%; }
+  a{ color:var(--gold); }
+
+  .wrap{ max-width:680px; margin:0 auto; padding:0 24px; }
+
+  header{ padding-top:32px; padding-bottom:8px; }
+  .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .brand img{ width:24px; height:24px; border-radius:6px; }
+  .brand span{ font-family:var(--serif); font-style:italic; font-weight:500; font-size:18px; color:var(--ink); }
+
+  main{ padding-top:24px; padding-bottom:80px; }
+
+  .eyebrow{
+    font-size:11.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--gold); margin:0 0 10px;
+  }
+  h1{
+    font-family:var(--serif); font-weight:520; font-size:clamp(1.8rem, 4vw, 2.4rem);
+    letter-spacing:-.01em; margin:0 0 6px; text-wrap:balance;
+  }
+  .dates{ font-size:13px; color:var(--ink3); margin:0 0 30px; }
+
+  .lede{ font-size:16.5px; color:var(--ink2); margin:0 0 36px; }
+
+  .tldr{
+    background:var(--bg-hi); border:1px solid var(--rule); border-radius:14px;
+    padding:20px 22px; margin:0 0 40px;
+  }
+  .tldr p{ margin:0 0 10px; font-size:14.5px; color:var(--ink2); }
+  .tldr p:last-child{ margin-bottom:0; }
+  .tldr strong{ color:var(--ink); font-weight:600; }
+
+  h2{
+    font-family:var(--serif); font-weight:520; font-size:1.25rem;
+    margin:40px 0 14px; padding-top:20px; border-top:1px solid var(--rule);
+  }
+  h2:first-of-type{ border-top:0; padding-top:0; }
+
+  p{ font-size:15px; color:var(--ink2); margin:0 0 14px; }
+  strong{ color:var(--ink); font-weight:600; }
+
+  table{ width:100%; border-collapse:collapse; margin:16px 0 20px; font-size:13.5px; }
+  th{ text-align:left; color:var(--ink3); font-weight:600; font-size:11.5px; letter-spacing:.04em; text-transform:uppercase; padding:0 12px 8px 0; border-bottom:1px solid var(--rule); }
+  td{ padding:10px 12px 10px 0; border-bottom:1px solid var(--rule); color:var(--ink2); vertical-align:top; }
+  td:first-child{ color:var(--ink); }
+
+  ul{ margin:0 0 14px; padding-left:20px; }
+  li{ font-size:15px; color:var(--ink2); margin-bottom:6px; }
+
+  .contact-card{
+    background:var(--bg-hi); border:1px solid var(--rule); border-radius:14px;
+    padding:22px; margin-top:8px;
+  }
+  .contact-card p{ margin:0 0 4px; font-size:14.5px; }
+  .contact-card .name{ color:var(--ink); font-weight:600; font-size:15px; margin-bottom:8px; }
+
+  footer{ border-top:1px solid var(--rule); padding:26px 0; }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size:12px; color:var(--ink3); }
+  footer a{ color:var(--ink3); text-decoration:none; }
+  footer a:hover{ color:var(--gold); }
+
+  @media (max-width:520px){
+    .wrap{ padding:0 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/img/icon.png" alt="">
+      <span>Marrow</span>
+    </a>
+  </header>
+
+  <main class="wrap">
+    <p class="eyebrow">Política de privacidad</p>
+    <h1>Cómo trata Marrow Calendar tu información</h1>
+    <p class="dates">Fecha de entrada en vigor: 8 de septiembre de 2026 · Última actualización: 13 de septiembre de 2026</p>
+
+    <p class="lede">Esta página explica qué hace Marrow Calendar ("la app", "nosotros") con tu
+      información. Está escrita para leerse, no para sobrevivirla. Si algo no queda
+      claro, escríbenos a <strong>contacto@marrowcalendar.com</strong>.</p>
+
+    <div class="tldr">
+      <p>Tus eventos, avisos y los colores que asignas se quedan <strong>en tu
+        dispositivo</strong> y en <strong>tu propia cuenta de iCloud</strong>. No
+        tenemos servidor ni copia.</p>
+      <p>No tenemos cuentas, y no te pedimos tu nombre, email ni teléfono.</p>
+      <p>No usamos analítica ni SDK de rastreo, y no hay anuncios. No vendemos ni
+        compartimos datos personales.</p>
+      <p>Algunas funciones envían datos a <strong>Apple</strong> (acceso al
+        calendario, búsqueda de lugares, compra dentro de la app) para poder
+        funcionar. Ese tratamiento lo cubre la
+        <a href="https://www.apple.com/legal/privacy/">Política de Privacidad de Apple</a>.</p>
+    </div>
+
+    <h2>1. Datos que la app guarda en tu dispositivo</h2>
+    <p>La app guarda lo siguiente localmente, usando el almacenamiento estándar del
+      sistema (<code>UserDefaults</code>) y, cuando aplica, tu base de datos de
+      calendario de iCloud:</p>
+    <table>
+      <tr><th>Qué</th><th>Para qué</th><th>Dónde vive</th></tr>
+      <tr><td>Tus eventos y avisos, incluida cualquier URL o nota que añadas</td><td>Mostrar y editar tu calendario</td><td>La base de datos del sistema Calendario (dispositivo + tu iCloud, gestionado por iOS)</td></tr>
+      <tr><td>Un color que asignas a un evento</td><td>Capa visual que la app añade sobre tu calendario</td><td>En tu dispositivo (<code>UserDefaults</code>)</td></tr>
+      <tr><td>Archivos adjuntos a un evento (Marrow Plus)</td><td>Guardar un documento —una entrada, un justificante, un PDF— junto al evento</td><td>Solo en tu dispositivo, en el almacenamiento propio de la app. No forma parte de tu calendario ni de iCloud, y no es visible desde la app Calendario ni ninguna otra</td></tr>
+      <tr><td>Tema y tipografía elegidos</td><td>Recordar cómo te gusta ver la app</td><td>En tu dispositivo (<code>UserDefaults</code>)</td></tr>
+      <tr><td>Si has desbloqueado Marrow Plus</td><td>Restaurar tu compra sin volver a preguntar</td><td>En tu dispositivo; el registro de compra en sí lo tiene Apple</td></tr>
+    </table>
+    <p>No podemos ver nada de esto. No se nos transmite. Los archivos adjuntos no
+      se sincronizan entre tus dispositivos —se quedan en el iPhone donde los
+      añadiste— y se borran automáticamente si eliminas el evento o la app.</p>
+
+    <h2>2. Acceso al calendario</h2>
+    <p>La app pide <strong>acceso completo a tu calendario</strong> para poder
+      mostrar, crear, editar y borrar eventos — es el propósito central de la
+      app. Si lo rechazas, las pantallas de calendario no están disponibles pero
+      el resto de la app (la fecha y el dato histórico) sigue funcionando.</p>
+    <p>Los datos de calendario se leen y se escriben en el almacén del sistema
+      Calendario. La app no copia tus eventos a ningún otro sitio.</p>
+
+    <h2>3. Búsqueda de lugares</h2>
+    <p>Cuando escribes una ubicación en un evento, el texto que tecleas se envía
+      a <strong>Apple Maps</strong> (<code>MKLocalSearchCompleter</code> /
+      <code>MKLocalSearch</code>) para devolver sugerencias de dirección. Lo
+      gestiona Apple y está sujeto a su política de privacidad. Si nunca añades
+      una ubicación, no se realiza ninguna búsqueda.</p>
+
+    <h2>4. El "dato del día"</h2>
+    <p>Los hechos históricos que muestra la app vienen incluidos dentro de la
+      propia app. Mostrarlos no requiere ninguna petición de red y no envía nada
+      a ningún sitio. Cada dato enlaza a un artículo de Wikipedia; al abrir ese
+      enlace se carga en tu navegador, y ahí aplica la
+      <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Política de Privacidad de la Fundación Wikimedia</a>.</p>
+
+    <h2>5. Compras</h2>
+    <p>Marrow Plus se vende a través del <strong>App Store</strong> como un pago
+      único (sin suscripción). La transacción, tu método de pago y el recibo los
+      gestiona enteramente <strong>Apple</strong>. Nosotros solo recibimos
+      información de ventas anónima y agregada de Apple; nunca vemos tus datos de
+      pago. Restaurar una compra usa StoreKit y tu Apple ID; no crea ninguna
+      cuenta con nosotros.</p>
+
+    <h2>6. Lo que NO hacemos</h2>
+    <ul>
+      <li>Sin cuentas, inicios de sesión ni contraseñas.</li>
+      <li>Sin anuncios ni SDK publicitarios.</li>
+      <li>Sin analítica propia, SDK de fallos ni huella digital del dispositivo.</li>
+      <li>Sin vender, alquilar ni intercambiar datos personales.</li>
+      <li>Sin perfiles construidos sobre ti por nuestra parte.</li>
+    </ul>
+
+    <h2>7. Menores</h2>
+    <p>La app no está dirigida a menores de 13 años (o la edad mínima equivalente
+      en tu país). No recopilamos a sabiendas datos personales de menores.</p>
+
+    <h2>8. Tus derechos</h2>
+    <p>Como no tenemos ningún dato personal tuyo en ningún servidor, no hay nada
+      que exportar o borrar por nuestra parte. Tú tienes el control directo:</p>
+    <ul>
+      <li><strong>Datos de calendario:</strong> gestiónalos desde la app Calendario o en Ajustes › Calendario.</li>
+      <li><strong>Preferencias y colores de la app:</strong> borra la app para eliminarlos del dispositivo.</li>
+      <li><strong>Archivos adjuntos:</strong> quítalos desde dentro del evento, o borra el evento entero; en ambos casos el archivo se elimina del dispositivo.</li>
+      <li><strong>Compras:</strong> se gestionan desde tu cuenta de App Store.</li>
+    </ul>
+    <p>Si tu jurisdicción (por ejemplo la UE/EEE, el Reino Unido o California) te
+      otorga derechos específicos sobre tus datos personales, puedes escribirnos
+      a <strong>contacto@marrowcalendar.com</strong> y responderemos según exija
+      la ley aplicable. El responsable de dicho tratamiento es <strong>Mikel
+      Albistegui Aguirre, Barrio Olabarrieta 74, Caserío Aiastui 74, 20560 Oñati
+      (Gipuzkoa), España</strong>.</p>
+
+    <h2>9. Conservación de datos</h2>
+    <p>Las preferencias persisten en tu dispositivo hasta que las cambies o
+      borres la app. No guardamos datos personales, así que no hay ningún plazo
+      de conservación que declarar por nuestra parte.</p>
+
+    <h2>10. Cambios en esta política</h2>
+    <p>Si cambiamos cómo trata la app los datos —por ejemplo, si una versión
+      futura añade sincronización entre dispositivos de tus preferencias o algún
+      tipo de publicidad— actualizaremos esta página, cambiaremos la fecha de
+      "última actualización" y lo indicaremos en las notas de la versión del App
+      Store.</p>
+
+    <h2>11. Contacto</h2>
+    <div class="contact-card">
+      <p class="name">Mikel Albistegui Aguirre</p>
+      <p>Email: <a href="mailto:contacto@marrowcalendar.com">contacto@marrowcalendar.com</a></p>
+      <p>Barrio Olabarrieta 74, Caserío Aiastui 74, 20560 Oñati (Gipuzkoa), España</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Mikel Albistegui Aguirre</span>
+      <a href="index.html">← Volver a Marrow</a>
+    </div>
+  </footer>
+
+</body>
+</html>
