@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soporte — Marrow Calendar</title>
+<meta name="description" content="Ayuda y preguntas frecuentes sobre Marrow Calendar: tus eventos, Marrow Plus, idiomas y cómo contactar con nosotros.">
+<link rel="icon" href="assets/img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,360..600;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:    #111110;
+    --bg-hi: #1c1a17;
+    --ink:   #efece4;
+    --ink2:  #9a9790;
+    --ink3:  #6b6862;
+    --gold:  #c9a969;
+    --rule:  rgba(239,236,228,.13);
+    --serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+    --sans:  'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.65;
+  }
+  img{ display:block; max-width:100%; }
+  a{ color:var(--gold); }
+
+  .wrap{ max-width:680px; margin:0 auto; padding:0 24px; }
+
+  header{ padding-top:32px; padding-bottom:8px; }
+  .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .brand img{ width:24px; height:24px; border-radius:6px; }
+  .brand span{ font-family:var(--serif); font-style:italic; font-weight:500; font-size:18px; color:var(--ink); }
+
+  main{ padding-top:24px; padding-bottom:80px; }
+
+  .eyebrow{
+    font-size:11.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--gold); margin:0 0 10px;
+  }
+  h1{
+    font-family:var(--serif); font-weight:520; font-size:clamp(1.8rem, 4vw, 2.4rem);
+    letter-spacing:-.01em; margin:0 0 6px; text-wrap:balance;
+  }
+  .lede{ font-size:16.5px; color:var(--ink2); margin:0 0 40px; }
+
+  .faq{ margin:0 0 14px; padding:22px 0; border-top:1px solid var(--rule); }
+  .faq:last-of-type{ border-bottom:1px solid var(--rule); }
+  .faq h2{
+    font-family:var(--serif); font-weight:520; font-size:1.1rem;
+    margin:0 0 10px; color:var(--ink);
+  }
+  .faq p{ font-size:15px; color:var(--ink2); margin:0; }
+  .faq p + p{ margin-top:10px; }
+
+  .contact-card{
+    background:var(--bg-hi); border:1px solid var(--rule); border-radius:14px;
+    padding:22px; margin-top:40px;
+  }
+  .contact-card h2{
+    font-family:var(--serif); font-weight:520; font-size:1.1rem; margin:0 0 8px; color:var(--ink);
+  }
+  .contact-card p{ margin:0; font-size:14.5px; color:var(--ink2); }
+
+  footer{ border-top:1px solid var(--rule); padding:26px 0; }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size:12px; color:var(--ink3); }
+  footer a{ color:var(--ink3); text-decoration:none; }
+  footer a:hover{ color:var(--gold); }
+
+  @media (max-width:520px){
+    .wrap{ padding:0 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/img/icon.png" alt="">
+      <span>Marrow</span>
+    </a>
+  </header>
+
+  <main class="wrap">
+    <p class="eyebrow">Soporte</p>
+    <h1>¿En qué podemos ayudarte?</h1>
+    <p class="lede">Si tu pregunta no está aquí, escríbenos directamente — respondemos nosotros mismos, sin bots ni buzón automático.</p>
+
+    <div class="faq">
+      <h2>¿Dónde están mis eventos?</h2>
+      <p>En tu propio calendario de iPhone y en tu cuenta de iCloud, como siempre. Marrow no tiene un calendario propio ni un servidor: lee y escribe directamente en el mismo sitio que la app Calendario de Apple. Si desinstalas Marrow, tus eventos siguen ahí intactos.</p>
+    </div>
+
+    <div class="faq">
+      <h2>No veo ningún evento al abrir la app</h2>
+      <p>Casi seguro que es el permiso de calendario. Ve a <strong>Ajustes de iOS → Marrow → Calendarios</strong> y comprueba que está activado con acceso completo. Si lo rechazaste la primera vez, iOS no vuelve a preguntar solo: hay que concederlo ahí a mano.</p>
+    </div>
+
+    <div class="faq">
+      <h2>¿Cómo restauro mi compra de Marrow Plus?</h2>
+      <p>Dentro de la app: <strong>Ajustes → Marrow Plus → Restaurar compra</strong>. Como es un pago único ligado a tu Apple ID (no una suscripción), se restaura gratis en cualquier dispositivo donde inicies sesión con el mismo Apple ID.</p>
+    </div>
+
+    <div class="faq">
+      <h2>¿Necesito crear una cuenta?</h2>
+      <p>No. Marrow no tiene cuentas, ni inicio de sesión, ni contraseña. Todo funciona con tu propio Apple ID y tu iCloud.</p>
+    </div>
+
+    <div class="faq">
+      <h2>¿Cómo cambio el idioma de la app?</h2>
+      <p>Dentro de la app: <strong>Ajustes → Idioma</strong>. Por defecto sigue el idioma de tu iPhone; puedes forzar uno distinto ahí mismo.</p>
+    </div>
+
+    <div class="faq">
+      <h2>He encontrado un fallo o tengo una idea</h2>
+      <p>Cuéntanoslo, nos sirve mucho. Cuantos más detalles (qué esperabas que pasara, qué pasó en realidad, y si puedes, en qué momento) más rápido lo podemos mirar.</p>
+    </div>
+
+    <div class="contact-card">
+      <h2>Contacto directo</h2>
+      <p>Escríbenos a <a href="mailto:contacto@marrowcalendar.com">contacto@marrowcalendar.com</a> — te contestamos nosotros mismos, normalmente en un par de días.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Marrow Calendar</span>
+      <span><a href="privacidad.html">Privacidad</a> · <a href="index.html">← Volver a Marrow</a></span>
+    </div>
+  </footer>
+
+</body>
+</html>
