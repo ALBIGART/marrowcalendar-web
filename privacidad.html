@@ -35,10 +35,14 @@
 
   .wrap{ max-width:680px; margin:0 auto; padding:0 24px; }
 
-  header{ padding-top:32px; padding-bottom:8px; }
+  header{ padding-top:32px; padding-bottom:8px; display:flex; align-items:center; justify-content:space-between; }
   .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; }
   .brand img{ width:24px; height:24px; border-radius:6px; }
   .brand span{ font-family:var(--serif); font-style:italic; font-weight:500; font-size:18px; color:var(--ink); }
+  .lang-switch{ font-size:12px; color:var(--ink3); }
+  .lang-switch a{ color:var(--ink3); text-decoration:none; }
+  .lang-switch a:hover{ color:var(--gold); }
+  .lang-switch .current{ color:var(--ink); font-weight:600; }
 
   main{ padding-top:24px; padding-bottom:80px; }
 
@@ -103,6 +107,7 @@
       <img src="assets/img/icon.png" alt="">
       <span>Marrow</span>
     </a>
+    <nav class="lang-switch"><span class="current">ES</span> · <a href="en/privacy.html">EN</a></nav>
   </header>
 
   <main class="wrap">
