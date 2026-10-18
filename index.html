@@ -3,427 +3,349 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Marrow Calendar — un calendario sin ruido</title>
-<meta name="description" content="Marrow Calendar: cuatro vistas en scroll continuo (hoy, año, mes y día), el dato del día y widgets, sin cuentas ni anuncios. Para iPhone. Ya disponible en el App Store.">
+<title>Marrow Calendar — un calendario sin ruido, con carácter</title>
+<meta name="description" content="Marrow Calendar para iPhone: año, mes y día en un solo scroll, el dato del día, once apariencias, widgets y cuenta atrás. Sin cuentas ni anuncios. En nueve idiomas, también euskera.">
 <link rel="icon" href="assets/img/icon.png">
+<meta name="theme-color" content="#111110">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Marrow Calendar">
 <meta property="og:title" content="Marrow Calendar — un calendario sin ruido, con carácter">
-<meta property="og:description" content="Cuatro vistas en scroll continuo, el dato del día y widgets. Sin cuentas, sin anuncios.">
+<meta property="og:description" content="Año, mes y día en un solo scroll, el dato del día, once apariencias y widgets. Sin cuentas, sin anuncios.">
 <meta property="og:image" content="https://marrowcalendar.com/assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://marrowcalendar.com/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Marrow Calendar — un calendario sin ruido, con carácter">
-<meta name="twitter:description" content="Cuatro vistas en scroll continuo, el dato del día y widgets. Sin cuentas, sin anuncios.">
+<meta name="twitter:description" content="Año, mes y día en un solo scroll, el dato del día, once apariencias y widgets. Sin cuentas, sin anuncios.">
 <meta name="twitter:image" content="https://marrowcalendar.com/assets/img/og-image.png">
+<link rel="alternate" hreflang="es" href="https://marrowcalendar.com/">
+<link rel="alternate" hreflang="en" href="https://marrowcalendar.com/en/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,360..600;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  /* Una sola pantalla, sin ruido: la misma paleta "negro" + acento dorado de
-     las capturas de la app, no la del sistema — un mundo visual deliberado. */
-  :root{
-    --bg:    #111110;
-    --ink:   #efece4;
-    --ink2:  #9a9790;
-    --gold:  #c9a969;
-    --rule:  rgba(239,236,228,.13);
-    --serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
-    --sans:  'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  }
-
-  *{ box-sizing:border-box; }
-
-  html, body{ height:100%; }
-  body{
-    margin:0;
-    background:
-      radial-gradient(ellipse 900px 560px at 82% 18%, #1d1a16, transparent 60%),
-      var(--bg);
-    color:var(--ink);
-    font-family:var(--sans);
-    -webkit-font-smoothing:antialiased;
-    display:flex;
-    flex-direction:column;
-    min-height:100%;
-  }
-
-  img{ display:block; max-width:100%; }
-  a{ color:inherit; text-decoration:none; }
-
-  .wrap{
-    width:100%;
-    max-width:1180px;
-    margin:0 auto;
-    padding-left:40px;
-    padding-right:40px;
-  }
-
-  /* ---------- header ---------- */
-  header{
-    padding-top:32px; padding-bottom:8px;
-    display:flex; align-items:center; justify-content:space-between;
-  }
-  .brand{ display:flex; align-items:center; gap:11px; }
-  .brand img{ width:26px; height:26px; border-radius:7px; }
-  .brand span{
-    font-family:var(--serif); font-style:italic; font-weight:500;
-    font-size:19px; color:var(--ink);
-  }
-  .lang-switch{ font-size:12.5px; color:#5f5c56; }
-  .lang-switch a{ color:#5f5c56; }
-  .lang-switch a:hover{ color:var(--gold); }
-  .lang-switch .current{ color:var(--ink); font-weight:600; }
-
-  /* ---------- hero ---------- */
-  main{
-    flex:1;
-    display:flex;
-    align-items:center;
-    padding-top:16px; padding-bottom:16px;
-  }
-  .hero{
-    width:100%;
-    display:grid;
-    grid-template-columns:1.05fr 1fr;
-    align-items:center;
-    gap:56px;
-  }
-
-  h1{
-    font-family:var(--serif); font-weight:520; letter-spacing:-.015em;
-    font-size:clamp(2.1rem, 3.6vw + 0.6rem, 3.4rem);
-    line-height:1.09;
-    margin:0 0 20px;
-    text-wrap:balance;
-  }
-  h1 em{ font-style:italic; font-weight:500; color:var(--gold); }
-
-  .sub{
-    margin:0 0 34px;
-    color:var(--ink2);
-    font-size:16.5px;
-    line-height:1.6;
-    max-width:420px;
-  }
-
-  .cta{
-    display:inline-flex; flex-direction:column; align-items:flex-start;
-    gap:2px;
-    padding:14px 24px;
-    border-radius:13px;
-    background:var(--gold);
-    color:#1b160c;
-  }
-  .cta .k1{
-    font-size:10.5px; font-weight:600; letter-spacing:.09em; text-transform:uppercase;
-    color:rgba(27,22,12,.62);
-  }
-  .cta .k2{ font-size:16px; font-weight:600; font-family:var(--sans); }
-
-  .note{
-    margin-top:16px;
-    font-size:12.5px;
-    color:#5f5c56;
-  }
-
-  /* ---------- tarjeta editorial ---------- */
-  /* En vez de una captura de pantalla del iPhone (difícil de encuadrar bien
-     y siempre da sensación de maqueta), una tarjeta que reproduce el propio
-     lenguaje visual de "El dato del día" dentro de la app — mismo tipo,
-     mismo dorado, mismo aire — como pieza gráfica propia de la web. */
-  .showcase{
-    position:relative;
-    max-width:340px;
-    margin:0 auto;
-  }
-  .showcase::before{
-    content:"";
-    position:absolute;
-    inset:-60px -40px auto auto;
-    width:280px; height:280px;
-    background:radial-gradient(circle, rgba(201,169,105,.16), transparent 70%);
-    pointer-events:none;
-  }
-  .card-peek{
-    position:absolute;
-    inset:22px -14px auto auto;
-    width:88%;
-    height:100%;
-    background:#1a1815;
-    border:1px solid rgba(239,236,228,.07);
-    border-radius:20px;
-    transform:rotate(4deg);
-    z-index:0;
-  }
-  .card{
-    position:relative;
-    z-index:1;
-    background:
-      radial-gradient(ellipse 260px 140px at 15% -10%, rgba(201,169,105,.09), transparent 60%),
-      #171512;
-    border:1px solid rgba(239,236,228,.09);
-    border-radius:20px;
-    padding:30px 28px 26px;
-    box-shadow:0 28px 60px -20px rgba(0,0,0,.55), inset 0 1px 0 rgba(239,236,228,.05);
-  }
-  .card .eyebrow{
-    display:flex; align-items:center; gap:7px;
-    font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
-    color:var(--gold);
-    margin:0 0 14px;
-  }
-  .card .eyebrow svg{ width:13px; height:13px; opacity:.9; }
-  .card .day{
-    font-family:var(--serif); font-weight:500; font-size:64px; line-height:1;
-    color:var(--ink); margin:0;
-  }
-  .card .month{
-    font-size:11.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
-    color:var(--ink2); margin:8px 0 20px;
-  }
-  .card .rule{ height:1px; background:rgba(239,236,228,.12); margin:0 0 18px; }
-  .card .meta{
-    display:flex; align-items:center; gap:7px;
-    font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--gold); margin:0 0 10px;
-  }
-  .card .meta svg{ width:13px; height:13px; }
-  .card h2{
-    font-family:var(--serif); font-weight:500; font-style:italic;
-    font-size:21px; line-height:1.28; color:var(--ink);
-    margin:0 0 8px;
-  }
-  .card p{
-    font-size:13px; line-height:1.55; color:var(--ink2); margin:0;
-  }
-
-  /* ---------- características ---------- */
-  .features{
-    padding-top:64px; padding-bottom:56px;
-    border-top:1px solid var(--rule);
-  }
-  .features-head{
-    max-width:480px;
-    margin:0 0 44px;
-  }
-  .features-head h2{
-    font-family:var(--serif); font-weight:500; font-style:italic;
-    font-size:clamp(1.5rem, 1.6vw + 1rem, 1.9rem);
-    color:var(--ink); margin:0 0 10px; text-wrap:balance;
-  }
-  .features-head p{
-    color:var(--ink2); font-size:15px; line-height:1.6; margin:0;
-  }
-  .feature-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:1px;
-    background:var(--rule);
-    border:1px solid var(--rule);
-    border-radius:16px;
-    overflow:hidden;
-  }
-  .feature{
-    background:var(--bg);
-    padding:26px 24px;
-  }
-  .feature svg{
-    width:19px; height:19px;
-    color:var(--gold);
-    margin:0 0 16px;
-  }
-  .feature h3{
-    font-family:var(--sans); font-weight:600; font-size:15px;
-    color:var(--ink); margin:0 0 7px;
-  }
-  .feature p{
-    font-size:13.5px; line-height:1.6; color:var(--ink2); margin:0;
-  }
-  .feature.plus{
-    background:
-      radial-gradient(ellipse 220px 120px at 90% 0%, rgba(201,169,105,.08), transparent 65%),
-      var(--bg);
-  }
-  .feature.plus h3{ color:var(--gold); }
-
-  /* ---------- footer ---------- */
-  footer{
-    padding-top:10px; padding-bottom:26px;
-    display:flex; align-items:center; justify-content:space-between; gap:16px;
-    flex-wrap:wrap;
-    font-size:12px; color:#5f5c56;
-  }
-  footer a{ color:#5f5c56; text-decoration:none; border-bottom:1px solid rgba(95,92,86,.4); }
-  footer a:hover{ color:var(--gold); border-bottom-color:var(--gold); }
-
-  /* ---------- responsive ---------- */
-  @media (max-width:860px){
-    .wrap{ padding-left:26px; padding-right:26px; }
-    header{ padding-top:26px; }
-    main{ padding-top:8px; padding-bottom:8px; }
-    .hero{ grid-template-columns:1fr; gap:40px; text-align:center; }
-    .sub{ margin-left:auto; margin-right:auto; }
-    .cta{ align-items:center; }
-    h1, .sub{ max-width:480px; margin-left:auto; margin-right:auto; }
-    .showcase{ order:-1; max-width:280px; }
-    .features{ padding-top:48px; padding-bottom:40px; }
-    .features-head{ margin-left:auto; margin-right:auto; text-align:center; }
-    .feature-grid{ grid-template-columns:1fr; }
-    footer{ justify-content:center; text-align:center; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
-  <header class="wrap">
-    <a class="brand" href="#">
-      <img src="assets/img/icon.png" alt="">
-      <span>Marrow</span>
-    </a>
-    <nav class="lang-switch"><span class="current">ES</span> · <a href="en/index.html">EN</a></nav>
-  </header>
+<header class="top wrap">
+  <a class="brand" href="#"><img src="assets/img/icon.png" alt=""><span>Marrow</span></a>
+  <nav class="lang-switch"><span class="current">ES</span> · <a href="en/index.html">EN</a></nav>
+</header>
 
-  <script>
-  // Si es la primera visita y el navegador pide inglés, lleva directo a la
-  // versión en inglés — pero solo una vez: a partir de ahí se respeta lo que
-  // elija la persona a mano con el selector de arriba.
-  (function () {
-    try {
-      if (!localStorage.getItem('marrow_lang')) {
-        var wantsEnglish = (navigator.language || '').toLowerCase().indexOf('en') === 0;
-        if (wantsEnglish) {
-          localStorage.setItem('marrow_lang', 'en');
-          location.replace('en/index.html');
-        } else {
-          localStorage.setItem('marrow_lang', 'es');
-        }
+<script>
+// Primera visita: si el navegador pide inglés, lleva a la versión en inglés (una sola vez);
+// después se respeta lo que elija la persona con el selector de arriba.
+(function () {
+  try {
+    var KEY = 'marrow_lang';
+    if ('es' === 'es') {
+      if (!localStorage.getItem(KEY)) {
+        var en = (navigator.language || '').toLowerCase().indexOf('en') === 0;
+        localStorage.setItem(KEY, en ? 'en' : 'es');
+        if (en) location.replace('en/index.html');
       }
-    } catch (e) { /* localStorage bloqueado: se queda en español, sin más */ }
-  })();
-  </script>
+    } else {
+      localStorage.setItem(KEY, 'en');
+    }
+  } catch (e) { /* localStorage bloqueado: se queda como está */ }
+})();
+</script>
 
-  <main class="wrap">
-    <div class="hero">
-      <div>
-        <h1>Un calendario sin ruido,<br><em>con carácter.</em></h1>
-        <p class="sub">Tu año, de un vistazo. Tu día, con historia.</p>
-        <a class="cta" href="https://apps.apple.com/app/marrow-calendar/id6809845517">
-          <span class="k1">Ya en el App Store</span>
-          <span class="k2">Descárgala gratis</span>
-        </a>
-        <p class="note">iPhone · iOS 18 o posterior</p>
+<main>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Un calendario sin ruido,<br><em>con carácter.</em></h1>
+      <p class="sub">Tu año, de un vistazo. Tu día, con historia.</p>
+      <a class="cta" href="https://apps.apple.com/app/marrow-calendar/id6809845517">
+        <span class="k1">Ya en el App Store</span>
+        <span class="k2">Descárgala gratis</span>
+      </a>
+      <p class="note">iPhone · iOS 18 o posterior · nueve idiomas</p>
+    </div>
+    <div class="hero-art">
+      <div class="phone p2"><img src="assets/img/app/es-year-marfil.webp" width="560" height="1218" alt="Marrow Calendar: la vista de año, en el tema Marfil."></div>
+      <div class="phone p1"><img src="assets/img/app/es-day.webp" width="560" height="1218" alt="Marrow Calendar: la agenda de un día, en el tema Negro." fetchpriority="high"></div>
+    </div>
+  </div>
+</section>
+
+<section id="vistas">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Tres escalas, un solo gesto</span>
+      <h2>Del año al día, <em>sin saltos.</em></h2>
+      <p class="lede">Año, mes y día encadenados en un único scroll. Sin pestañas ni menús: tocas, entras; deslizas, sales.</p>
+    </div>
+    <div class="scales">
+      <div class="scale">
+        <div class="phone"><img src="assets/img/app/es-year.webp" width="560" height="1218" loading="lazy" alt="La vista de año de Marrow."></div>
+        <div><h3>Año</h3><p>Los doce meses de un vistazo. Cada año lleva su propio título y sube con el calendario, como en una página.</p></div>
       </div>
-      <div class="showcase" id="fact-card" role="img" aria-label="El dato del día, dentro de Marrow.">
-        <div class="card-peek"></div>
-        <div class="card">
-          <p class="eyebrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"/></svg>
-            El dato del día
-          </p>
-          <p class="day" id="fact-day">21</p>
-          <p class="month" id="fact-month">Septiembre</p>
-          <div class="rule"></div>
-          <p class="meta">
-            <svg id="fact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1"/></svg>
-            <span id="fact-meta">Política · 1792</span>
-          </p>
-          <h2 id="fact-title">Francia abole la monarquía</h2>
-          <p id="fact-headline">En 1792, la Convención suprimió la realeza y al día siguiente proclamó la Primera República francesa.</p>
-        </div>
+      <div class="scale">
+        <div class="phone"><img src="assets/img/app/es-month.webp" width="560" height="1218" loading="lazy" alt="La vista de mes de Marrow."></div>
+        <div><h3>Mes</h3><p>Scroll continuo, mes tras mes. Los días con algo apuntado se tiñen del color de su evento.</p></div>
+      </div>
+      <div class="scale">
+        <div class="phone"><img src="assets/img/app/es-day.webp" width="560" height="1218" loading="lazy" alt="La vista de día de Marrow."></div>
+        <div><h3>Día</h3><p>Tu agenda hacia delante y hacia atrás, sin flechas. Con la hora, el lugar y la raya de color de cada evento.</p></div>
       </div>
     </div>
-  </main>
+  </div>
+</section>
 
-  <script>
-  (function () {
-    var CATEGORIES = {
-      politics:    { label: "Política",     icon: '<path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1"/>' },
-      war:         { label: "Conflictos",   icon: '<path d="M12 2 4 5v6c0 5 3.4 8.4 8 11 4.6-2.6 8-6 8-11V5l-8-3Z"/>' },
-      science:     { label: "Ciencia",      icon: '<circle cx="12" cy="12" r="1.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)"/>' },
-      technology:  { label: "Tecnología",   icon: '<rect x="7" y="7" width="10" height="10" rx="1.5"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/>' },
-      exploration: { label: "Exploración",  icon: '<circle cx="12" cy="12" r="9"/><path d="m14.8 9.2-2 5.6-5.6 2 2-5.6 5.6-2Z"/>' },
-      culture:     { label: "Cultura",      icon: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15Z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20"/>' },
-      art:         { label: "Arte",         icon: '<path d="M12 2a10 10 0 1 0 0 20c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.4-.3-.4-.5-.8-.5-1.3 0-1 .8-1.8 1.8-1.8H17a4 4 0 0 0 4-4c0-5.5-4.5-9.5-9-9.5Z"/><circle cx="7.5" cy="10.5" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15" cy="8" r="1"/>' },
-      sports:      { label: "Deporte",      icon: '<path d="M8 4h8v4a4 4 0 0 1-8 0V4Z"/><path d="M8 5H5a2 2 0 0 0 2 4M16 5h3a2 2 0 0 1-2 4"/><path d="M12 12v3M9 20h6M10 17h4v3h-4Z"/>' },
-      society:     { label: "Sociedad",     icon: '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.3"/><path d="M15.2 20c.2-2.4 1.8-4.3 4-4.9"/>' },
-      economy:     { label: "Economía",     icon: '<path d="m3 17 6-6 4 4 8-8"/><path d="M15 3h6v6"/>' },
-      disaster:    { label: "Catástrofes",  icon: '<path d="M12 2 2 20h20L12 2Z"/><path d="M12 9v4M12 16h.01"/>' }
-    };
-    var MONTHS = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
-
-    fetch("facts.es.json")
-      .then(function (r) { return r.json(); })
-      .then(function (facts) {
-        var now = new Date();
-        var month = now.getMonth() + 1;
-        var day = now.getDate();
-        var fact = facts.find(function (f) { return f.month === month && f.day === day; });
-        if (!fact) return;
-
-        var cat = CATEGORIES[fact.category] || CATEGORIES.politics;
-        var year = fact.year < 0 ? (Math.abs(fact.year) + " A. C.") : fact.year;
-
-        document.getElementById("fact-day").textContent = fact.day;
-        document.getElementById("fact-month").textContent = MONTHS[fact.month - 1];
-        document.getElementById("fact-icon").innerHTML = cat.icon;
-        document.getElementById("fact-meta").textContent = cat.label + " · " + year;
-        document.getElementById("fact-title").textContent = fact.title;
-        document.getElementById("fact-headline").textContent = fact.headline;
-        document.getElementById("fact-card").setAttribute("aria-label",
-          "El dato del día, dentro de Marrow: " + fact.day + " de " + MONTHS[fact.month - 1] +
-          ", " + cat.label + ", " + year + " — " + fact.title + ".");
-      })
-      .catch(function () { /* sin conexión: se queda el ejemplo estático */ });
-  })();
-  </script>
-
-  <section class="features wrap">
-    <div class="features-head">
-      <h2>Un calendario con 365 motivos para abrirlo.</h2>
-      <p>No es un calendario nuevo. Es el de siempre, sin lo que le sobraba.</p>
+<section id="dato">
+  <div class="wrap fact-grid">
+    <div class="showcase" id="fact-card" role="img" aria-label="El dato del día, dentro de Marrow: Luis XIV revoca el Edicto de Nantes.">
+      <div class="card-peek"></div>
+      <div class="card">
+        <p class="eyebrow-in">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"/></svg>
+          El dato del día
+        </p>
+        <p class="day" id="fact-day">18</p>
+        <p class="month" id="fact-month">Octubre</p>
+        <div class="rule"></div>
+        <p class="meta">
+          <svg id="fact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1"/></svg>
+          <span id="fact-meta">Política · 1685</span>
+        </p>
+        <h4 id="fact-title">Luis XIV revoca el Edicto de Nantes</h4>
+        <p class="txt" id="fact-headline">En 1685, Francia ilegalizó el protestantismo y provocó el exilio de cientos de miles de personas.</p>
+      </div>
     </div>
-    <div class="feature-grid">
-      <div class="feature">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>
-        <h3>Cuatro vistas</h3>
-        <p>Hoy, Año, Mes y Día, en un solo trazo continuo.</p>
+    <div>
+      <span class="eyebrow">El dato del día</span>
+      <h2>Cada mañana, <em>un hecho</em> para la fecha.</h2>
+      <p class="lede">Escrito con calma, con su año y su categoría, y un enlace a Wikipedia para seguir leyendo.</p>
+      <ul class="ticks">
+        <li><strong>Uno para cada día del año</strong>, también el 29 de febrero.</li>
+        <li><strong>En tu idioma:</strong> los nueve de la app, euskera incluido.</li>
+        <li><strong>Un aviso discreto</strong> cada mañana, si lo activas. Y si no, te espera al abrir la app.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="apariencias">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Apariencias</span>
+      <h2>Once apariencias. <em>Dos gratis,</em> nueve con Plus.</h2>
+      <p class="lede">Cada una con su base y su tinta, pensada para leerse bien de día y de noche. Cambias con un toque y se ve igual en los widgets.</p>
+    </div>
+    <div class="themes">
+      <figure class="theme">
+        <div class="shot"><img src="assets/img/app/es-t-dark.webp" width="420" height="512" loading="lazy" alt="Marrow en el tema Negro"></div>
+        <figcaption><b>Negro <span class="tag">Gratis</span></b><small>Negro cálido y dorado</small></figcaption>
+      </figure>
+      <figure class="theme">
+        <div class="shot"><img src="assets/img/app/es-t-light.webp" width="420" height="512" loading="lazy" alt="Marrow en el tema Blanco"></div>
+        <figcaption><b>Blanco <span class="tag">Gratis</span></b><small>Beige cálido y dorado</small></figcaption>
+      </figure>
+      <figure class="theme">
+        <div class="shot"><img src="assets/img/app/es-t-cobalto.webp" width="420" height="512" loading="lazy" alt="Marrow en el tema Cobalto"></div>
+        <figcaption><b>Cobalto <span class="tag plus">Plus</span></b><small>Azul de medianoche</small></figcaption>
+      </figure>
+      <figure class="theme">
+        <div class="shot"><img src="assets/img/app/es-t-enebro.webp" width="420" height="512" loading="lazy" alt="Marrow en el tema Enebro"></div>
+        <figcaption><b>Enebro <span class="tag plus">Plus</span></b><small>Verde de sala de lectura</small></figcaption>
+      </figure>
+      <figure class="theme">
+        <div class="shot"><img src="assets/img/app/es-t-linotipia.webp" width="420" height="512" loading="lazy" alt="Marrow en el tema Linotipia"></div>
+        <figcaption><b>Linotipia <span class="tag plus">Plus</span></b><small>Gris de imprenta</small></figcaption>
+      </figure>
+      <figure class="theme">
+        <div class="shot"><img src="assets/img/app/es-t-siena.webp" width="420" height="512" loading="lazy" alt="Marrow en el tema Merlot"></div>
+        <figcaption><b>Merlot <span class="tag plus">Plus</span></b><small>Vino tinto y cobre</small></figcaption>
+      </figure>
+      <figure class="theme">
+        <div class="shot"><img src="assets/img/app/es-t-marfil.webp" width="420" height="512" loading="lazy" alt="Marrow en el tema Marfil"></div>
+        <figcaption><b>Marfil <span class="tag plus">Plus</span></b><small>Marfil y grafito</small></figcaption>
+      </figure>
+      <figure class="theme">
+        <div class="shot"><img src="assets/img/app/es-t-cacao.webp" width="420" height="512" loading="lazy" alt="Marrow en el tema Cacao y rosa"></div>
+        <figcaption><b>Cacao y rosa <span class="tag plus">Plus</span></b><small>Rubor claro y cacao</small></figcaption>
+      </figure>
+      <figure class="theme">
+        <div class="shot"><img src="assets/img/app/es-t-tostado.webp" width="420" height="512" loading="lazy" alt="Marrow en el tema Tostado"></div>
+        <figcaption><b>Tostado <span class="tag plus">Plus</span></b><small>Papel kraft y tueste</small></figcaption>
+      </figure>
+      <figure class="theme">
+        <div class="shot"><img src="assets/img/app/es-t-nebulosa.webp" width="420" height="512" loading="lazy" alt="Marrow en el tema Nebulosa"></div>
+        <figcaption><b>Nebulosa <span class="tag plus">Plus</span></b><small>Noche violeta y lila</small></figcaption>
+      </figure>
+      <figure class="theme">
+        <div class="shot"><img src="assets/img/app/es-t-eclipse.webp" width="420" height="512" loading="lazy" alt="Marrow en el tema Eclipse"></div>
+        <figcaption><b>Eclipse <span class="tag plus">Plus</span></b><small>Negro profundo y plata fría</small></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="eventos">
+  <div class="wrap events-grid">
+    <div class="phone"><img src="assets/img/app/es-editor.webp" width="560" height="1218" loading="lazy" alt="El editor de eventos de Marrow, con la paleta de colores."></div>
+    <div>
+      <span class="eyebrow">Tus eventos</span>
+      <h2>Sobre el calendario de siempre, <em>con tu color.</em></h2>
+      <p class="lede">Marrow usa el calendario de tu iPhone: lo que apuntas aparece en tus otras apps y viaja por tu iCloud.</p>
+      <ul class="ticks">
+        <li><strong>Crea y edita</strong> con repetición, aviso, ubicación con búsqueda de Apple Maps, notas y enlace.</li>
+        <li><strong>Avisos que llegan:</strong> Marrow programa los suyos, también si las notificaciones del Calendario están apagadas.</li>
+        <li><strong>Un color por evento</strong> para distinguir de un vistazo el trabajo del fin de semana.</li>
+        <li><strong>Búsqueda</strong> por título, lugar o notas, sin acentos ni mayúsculas.</li>
+      </ul>
+      <div class="swatches" aria-hidden="true"><i style="background:#b85551"></i><i style="background:#ccb166"></i><i style="background:#539368"></i><i style="background:#5b7fae"></i><i class="lock" style="background:#d38f73"></i><i class="lock" style="background:#c48e4f"></i><i class="lock" style="background:#9aaf6a"></i><i class="lock" style="background:#45928d"></i><i class="lock" style="background:#60acc7"></i><i class="lock" style="background:#916db0"></i><i class="lock" style="background:#b262a7"></i><i class="lock" style="background:#d27f98"></i><i class="lock" style="background:#813748"></i><i class="lock" style="background:#896143"></i><i class="lock" style="background:#868d98"></i></div>
+      <p class="swatches-note">Cuatro colores gratis y once más con Plus.</p>
+    </div>
+  </div>
+</section>
+
+<section id="widgets">
+  <div class="wrap widgets-grid">
+    <div>
+      <span class="eyebrow">Widgets</span>
+      <h2>Tu día, en la pantalla de <em>inicio y de bloqueo.</em></h2>
+      <p class="lede">La misma sobriedad que la app, en el tema que hayas elegido.</p>
+      <ul class="wlist">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15Z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20"/></svg><div><h3>El dato del día</h3><p>Un hecho histórico distinto cada día, para leer de un vistazo.</p></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg><div><h3>Tu agenda</h3><p>Los eventos de hoy. Con Plus, el widget mira más allá y enseña también los próximos días.</p></div></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg><div><h3>Cuenta atrás</h3><p>Los días, horas y segundos que faltan para un evento. <b>Solo con Plus.</b></p></div></li>
+      </ul>
+    </div>
+    <div class="widget-stage">
+      <img class="w-small" src="assets/img/app/es-widget-countdown.webp" width="380" height="380" loading="lazy" alt="Widget de cuenta atrás de Marrow.">
+      <img class="w-med" src="assets/img/app/es-widget-agenda.webp" width="700" height="327" loading="lazy" alt="Widget de agenda de Marrow.">
+    </div>
+  </div>
+</section>
+
+<section id="idiomas">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Idiomas</span>
+      <h2>Nueve idiomas, <em>también euskera.</em></h2>
+      <p class="lede">La app, los widgets, los avisos y los hechos de cada día, en el idioma que elijas. Por defecto sigue el de tu iPhone.</p>
+    </div>
+    <div class="chips">
+      <span class="chip">Español</span>
+      <span class="chip">English</span>
+      <span class="chip new">Euskara<small>Nuevo</small></span>
+      <span class="chip">Français</span>
+      <span class="chip">Deutsch</span>
+      <span class="chip">Italiano</span>
+      <span class="chip">Nederlands</span>
+      <span class="chip">Português (Brasil)</span>
+      <span class="chip">Português (Portugal)</span>
+    </div>
+  </div>
+</section>
+
+<section id="plus">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Gratis y Plus</span>
+      <h2>La app es completa. <em>Plus la hace tuya.</em></h2>
+      <p class="lede">Un único pago, para siempre, sin suscripción. Se restaura en todos tus dispositivos con tu Apple ID.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <p class="kicker">Gratis</p>
+        <h3>Marrow</h3>
+        <p class="price">Todo lo necesario, sin trampa.</p>
+        <ul>
+        <li><strong>Año, mes y día</strong> en scroll continuo</li>
+        <li><strong>El dato del día</strong> y su aviso matinal</li>
+        <li><strong>Eventos</strong> con repetición, avisos, ubicación y búsqueda</li>
+        <li><strong>Dos apariencias</strong> (Negro y Blanco) y cuatro colores de evento</li>
+        <li><strong>Widgets</strong> del dato del día y de la agenda de hoy</li>
+        <li>Nueve idiomas</li>
+        </ul>
       </div>
-      <div class="feature">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15Z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20"/></svg>
-        <h3>El dato del día</h3>
-        <p>Un hecho histórico distinto cada día del año. Con enlace a Wikipedia.</p>
-      </div>
-      <div class="feature">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10Z"/></svg>
-        <h3>Tus eventos, como siempre</h3>
-        <p>El calendario de tu iPhone de siempre. Todo sigue por tu iCloud.</p>
-      </div>
-      <div class="feature">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
-        <h3>Widgets</h3>
-        <p>El dato del día y tu agenda, en inicio y en bloqueo. Tres tamaños.</p>
-      </div>
-      <div class="feature plus">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>
+      <div class="plan plus">
+        <p class="kicker">Un solo pago</p>
         <h3>Marrow Plus</h3>
-        <p>Temas, tipografías, adjuntos y widgets sin firma. Un pago, para siempre.</p>
-      </div>
-      <div class="feature">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 11 4.6-2.6 8-6 8-11V5l-8-3Z"/></svg>
-        <h3>Sin letra pequeña</h3>
-        <p>Sin cuentas, sin anuncios, sin analítica. Todo se queda en tu dispositivo.</p>
+        <p class="price">Para siempre. Sin suscripciones.</p>
+        <ul>
+        <li><strong>Nueve apariencias más:</strong> Cobalto, Enebro, Linotipia, Merlot, Marfil, Cacao y rosa, Tostado, Nebulosa y Eclipse</li>
+        <li><strong>Once colores más</strong> para tus eventos</li>
+        <li><strong>Cuenta atrás</strong> en la pantalla de inicio y en la de bloqueo</li>
+        <li><strong>Widget de agenda ampliado:</strong> mira más allá de hoy</li>
+        <li><strong>Adjuntos</strong> en cada evento: la entrada, el justificante, el PDF de la reserva</li>
+        <li><strong>Widgets sin firma</strong></li>
+        </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="wrap">
+<section id="privacidad">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Sin letra pequeña</span>
+      <h2>Lo tuyo se queda <em>contigo.</em></h2>
+    </div>
+    <div class="privacy-row">
+      <div><h3>Sin cuentas</h3><p>No hay registro ni inicio de sesión. Abres la app y ya está.</p></div>
+      <div><h3>Sin anuncios ni analítica</h3><p>Ni rastreadores ni SDK de terceros. No sabemos qué haces con tu calendario.</p></div>
+      <div><h3>Sin servidor</h3><p>Tus eventos viven en el calendario del iPhone y en tu iCloud. Marrow no guarda copia.</p></div>
+    </div>
+    <p style="text-align:center;margin:26px 0 0"><a href="privacidad.html" style="color:var(--gold);border-bottom:1px solid rgba(209,176,110,.4)">Leer la política de privacidad</a></p>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <img class="icon" src="assets/img/icon.png" alt="Marrow Calendar" width="84" height="84">
+    <h2>Un calendario con 366 motivos <em>para abrirlo.</em></h2>
+    <p class="lede">No es un calendario nuevo. Es el de siempre, sin lo que le sobraba.</p>
+    <a class="cta" href="https://apps.apple.com/app/marrow-calendar/id6809845517">
+      <span class="k1">Ya en el App Store</span>
+      <span class="k2">Descárgala gratis</span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
     <span>© 2026 Marrow Calendar</span>
     <span><a href="soporte.html">Soporte</a> · <a href="privacidad.html">Privacidad</a> · <a href="aviso-legal.html">Aviso legal</a> · <a href="mailto:contacto@marrowcalendar.com">contacto@marrowcalendar.com</a></span>
-  </footer>
+  </div>
+</footer>
+
+<script>
+// El dato del día de HOY dentro de la tarjeta (si no carga, se queda el ejemplo).
+(function () {
+  var CATEGORIES = {"politics": "Política", "war": "Conflictos", "science": "Ciencia", "technology": "Tecnología", "exploration": "Exploración", "culture": "Cultura", "art": "Arte", "sports": "Deporte", "society": "Sociedad", "economy": "Economía", "disaster": "Catástrofes"};
+  var ICONS = {"politics": "<path d=\"M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1\"/>", "war": "<path d=\"M12 2 4 5v6c0 5 3.4 8.4 8 11 4.6-2.6 8-6 8-11V5l-8-3Z\"/>", "science": "<circle cx=\"12\" cy=\"12\" r=\"1.6\"/><ellipse cx=\"12\" cy=\"12\" rx=\"9\" ry=\"3.6\"/><ellipse cx=\"12\" cy=\"12\" rx=\"9\" ry=\"3.6\" transform=\"rotate(60 12 12)\"/><ellipse cx=\"12\" cy=\"12\" rx=\"9\" ry=\"3.6\" transform=\"rotate(120 12 12)\"/>", "technology": "<rect x=\"7\" y=\"7\" width=\"10\" height=\"10\" rx=\"1.5\"/><path d=\"M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3\"/>", "exploration": "<circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"m14.8 9.2-2 5.6-5.6 2 2-5.6 5.6-2Z\"/>", "culture": "<path d=\"M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15Z\"/><path d=\"M4 19.5A2.5 2.5 0 0 0 6.5 22H20\"/>", "art": "<path d=\"M12 2a10 10 0 1 0 0 20c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.4-.3-.4-.5-.8-.5-1.3 0-1 .8-1.8 1.8-1.8H17a4 4 0 0 0 4-4c0-5.5-4.5-9.5-9-9.5Z\"/><circle cx=\"7.5\" cy=\"10.5\" r=\"1\"/><circle cx=\"10.5\" cy=\"7.5\" r=\"1\"/><circle cx=\"15\" cy=\"8\" r=\"1\"/>", "sports": "<path d=\"M8 4h8v4a4 4 0 0 1-8 0V4Z\"/><path d=\"M8 5H5a2 2 0 0 0 2 4M16 5h3a2 2 0 0 1-2 4\"/><path d=\"M12 12v3M9 20h6M10 17h4v3h-4Z\"/>", "society": "<circle cx=\"9\" cy=\"8\" r=\"3\"/><path d=\"M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6\"/><circle cx=\"17\" cy=\"9\" r=\"2.3\"/><path d=\"M15.2 20c.2-2.4 1.8-4.3 4-4.9\"/>", "economy": "<path d=\"m3 17 6-6 4 4 8-8\"/><path d=\"M15 3h6v6\"/>", "disaster": "<path d=\"M12 2 2 20h20L12 2Z\"/><path d=\"M12 9v4M12 16h.01\"/>"};
+  var MONTHS = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+  var BC = 'A. C.';
+  fetch("facts.es.json")
+    .then(function (r) { return r.json(); })
+    .then(function (facts) {
+      var now = new Date(), month = now.getMonth() + 1, day = now.getDate();
+      var fact = facts.find(function (f) { return f.month === month && f.day === day; });
+      if (!fact) return;
+      var cat = CATEGORIES[fact.category] || CATEGORIES.politics;
+      var year = fact.year < 0 ? (Math.abs(fact.year) + " " + BC) : fact.year;
+      document.getElementById("fact-day").textContent = fact.day;
+      document.getElementById("fact-month").textContent = MONTHS[fact.month - 1];
+      document.getElementById("fact-icon").innerHTML = ICONS[fact.category] || ICONS.politics;
+      document.getElementById("fact-meta").textContent = cat + " · " + year;
+      document.getElementById("fact-title").textContent = fact.title;
+      document.getElementById("fact-headline").textContent = fact.headline;
+      document.getElementById("fact-card").setAttribute("aria-label",
+        "El dato del día, dentro de Marrow: " + fact.day + " " + MONTHS[fact.month - 1] + ", " + cat + ", " + year + " — " + fact.title + ".");
+    })
+    .catch(function () { /* sin conexión: se queda el ejemplo */ });
+})();
+</script>
 
 </body>
 </html>

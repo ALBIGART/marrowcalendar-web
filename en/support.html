@@ -6,95 +6,20 @@
 <title>Support — Marrow Calendar</title>
 <meta name="description" content="Help and frequently asked questions about Marrow Calendar: your events, Marrow Plus, languages, and how to reach us.">
 <link rel="icon" href="../assets/img/icon.png">
+<meta name="theme-color" content="#111110">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,360..600;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:    #111110;
-    --bg-hi: #1c1a17;
-    --ink:   #efece4;
-    --ink2:  #9a9790;
-    --ink3:  #6b6862;
-    --gold:  #c9a969;
-    --rule:  rgba(239,236,228,.13);
-    --serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
-    --sans:  'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  }
-  *{ box-sizing:border-box; }
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:var(--sans);
-    -webkit-font-smoothing:antialiased;
-    line-height:1.65;
-  }
-  img{ display:block; max-width:100%; }
-  a{ color:var(--gold); }
-
-  .wrap{ max-width:680px; margin:0 auto; padding:0 24px; }
-
-  header{ padding-top:32px; padding-bottom:8px; display:flex; align-items:center; justify-content:space-between; }
-  .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; }
-  .brand img{ width:24px; height:24px; border-radius:6px; }
-  .brand span{ font-family:var(--serif); font-style:italic; font-weight:500; font-size:18px; color:var(--ink); }
-  .lang-switch{ font-size:12px; color:var(--ink3); }
-  .lang-switch a{ color:var(--ink3); text-decoration:none; }
-  .lang-switch a:hover{ color:var(--gold); }
-  .lang-switch .current{ color:var(--ink); font-weight:600; }
-
-  main{ padding-top:24px; padding-bottom:80px; }
-
-  .eyebrow{
-    font-size:11.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
-    color:var(--gold); margin:0 0 10px;
-  }
-  h1{
-    font-family:var(--serif); font-weight:520; font-size:clamp(1.8rem, 4vw, 2.4rem);
-    letter-spacing:-.01em; margin:0 0 6px; text-wrap:balance;
-  }
-  .lede{ font-size:16.5px; color:var(--ink2); margin:0 0 40px; }
-
-  .faq{ margin:0 0 14px; padding:22px 0; border-top:1px solid var(--rule); }
-  .faq:last-of-type{ border-bottom:1px solid var(--rule); }
-  .faq h2{
-    font-family:var(--serif); font-weight:520; font-size:1.1rem;
-    margin:0 0 10px; color:var(--ink);
-  }
-  .faq p{ font-size:15px; color:var(--ink2); margin:0; }
-  .faq p + p{ margin-top:10px; }
-
-  .contact-card{
-    background:var(--bg-hi); border:1px solid var(--rule); border-radius:14px;
-    padding:22px; margin-top:40px;
-  }
-  .contact-card h2{
-    font-family:var(--serif); font-weight:520; font-size:1.1rem; margin:0 0 8px; color:var(--ink);
-  }
-  .contact-card p{ margin:0; font-size:14.5px; color:var(--ink2); }
-
-  footer{ border-top:1px solid var(--rule); padding:26px 0; }
-  footer .wrap{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size:12px; color:var(--ink3); }
-  footer a{ color:var(--ink3); text-decoration:none; }
-  footer a:hover{ color:var(--gold); }
-
-  @media (max-width:520px){
-    .wrap{ padding:0 20px; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
 </head>
-<body>
+<body class="doc-page">
 
-  <header class="wrap">
-    <a class="brand" href="index.html">
-      <img src="../assets/img/icon.png" alt="">
-      <span>Marrow</span>
-    </a>
-    <nav class="lang-switch"><a href="../soporte.html">ES</a> · <span class="current">EN</span></nav>
-  </header>
+<header class="top wrap">
+  <a class="brand" href="index.html"><img src="../assets/img/icon.png" alt=""><span>Marrow</span></a>
+  <nav class="lang-switch"><a href="../soporte.html">ES</a> · <span class="current">EN</span></nav>
+</header>
 
-  <main class="wrap">
+<main class="wrap doc">
     <p class="eyebrow">Support</p>
     <h1>How can we help?</h1>
     <p class="lede">If your question isn't here, just write to us — we answer ourselves, no bots and no ticket queue.</p>
@@ -106,12 +31,32 @@
 
     <div class="faq">
       <h2>I don't see any events when I open the app</h2>
-      <p>It's almost certainly the calendar permission. Go to <strong>iOS Settings → Marrow → Calendars</strong> and check that it's turned on with full access. If you declined it the first time, iOS won't ask again on its own — you need to grant it there by hand.</p>
+      <p>It's almost certainly the calendar permission. Go to <strong>iOS Settings → Marrow → Calendars</strong> and check that it's turned on with <strong>full access</strong> (with "Add Events Only" Marrow can't read anything). If you declined it the first time, iOS won't ask again on its own — you need to grant it there by hand.</p>
     </div>
 
     <div class="faq">
       <h2>How do I restore my Marrow Plus purchase?</h2>
       <p>Inside the app: <strong>Settings → Marrow Plus → Restore Purchase</strong>. Since it's a one-time payment tied to your Apple ID (not a subscription), it restores for free on any device where you sign in with the same Apple ID.</p>
+    </div>
+
+    <div class="faq">
+      <h2>How do I change the look?</h2>
+      <p>Inside the app: <strong>Settings → Appearance</strong>. Black and White are free; the other nine — Cobalt, Juniper, Linotype, Merlot, Ivory, Cocoa and rose, Toasted, Nebula and Eclipse — are part of Marrow Plus. The widgets follow whichever look you choose.</p>
+    </div>
+
+    <div class="faq">
+      <h2>What does Marrow Plus include?</h2>
+      <p>The nine paid looks, eleven more colours for your events (free, you get red, yellow, green and blue), the countdown on your Home and Lock Screens, attachments on events, the wider agenda widget that shows the next days, and widgets without the mark. It is a single payment, no subscription.</p>
+    </div>
+
+    <div class="faq">
+      <h2>How do I put a countdown on my screen?</h2>
+      <p>With Marrow Plus: touch and hold your Home Screen, tap <strong>Add Widget</strong>, search for Marrow and choose <strong>Countdown</strong>. Then touch and hold the widget, tap <strong>Edit Widget</strong> and pick the event. There is a Lock Screen version too.</p>
+    </div>
+
+    <div class="faq">
+      <h2>My event alerts aren't arriving</h2>
+      <p>Marrow schedules its own alerts on the iPhone, but it needs the notifications permission: <strong>iOS Settings → Notifications → Marrow</strong>. Alerts are scheduled for the next 30 days and renewed every time you open the app. Event alerts are marked time-sensitive, so they can get through a Focus; the fact-of-the-day nudge is silent and does not.</p>
     </div>
 
     <div class="faq">
@@ -121,7 +66,7 @@
 
     <div class="faq">
       <h2>How do I change the app's language?</h2>
-      <p>Inside the app: <strong>Settings → Language</strong>. By default it follows your iPhone's language; you can force a different one right there.</p>
+      <p>Inside the app: <strong>Settings → Language</strong> (tap it to expand). By default it follows your iPhone's language; you can pick another of the nine available — Spanish, English, Basque, French, German, Italian, Dutch, and Brazilian and European Portuguese. The change reaches the widgets, the alerts and the fact of the day too.</p>
     </div>
 
     <div class="faq">
@@ -133,14 +78,15 @@
       <h2>Direct contact</h2>
       <p>Write to us at <a href="mailto:contacto@marrowcalendar.com">contacto@marrowcalendar.com</a> — we answer ourselves, usually within a couple of days.</p>
     </div>
-  </main>
 
-  <footer>
-    <div class="wrap">
-      <span>© 2026 Marrow Calendar</span>
-      <span><a href="privacy.html">Privacy</a> · <a href="../aviso-legal.html">Legal notice</a> · <a href="index.html">← Back to Marrow</a></span>
-    </div>
-  </footer>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Marrow Calendar</span>
+    <span><a href="support.html">Support</a> · <a href="privacy.html">Privacy</a> · <a href="../aviso-legal.html">Legal notice</a> · <a href="index.html">← Back to Marrow</a></span>
+  </div>
+</footer>
 
 </body>
 </html>
