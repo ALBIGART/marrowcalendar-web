@@ -135,9 +135,11 @@ section + section{ border-top:1px solid var(--rule); }
 
 /* ---------- apariencias ---------- */
 .themes{
-  display:grid; grid-template-columns:repeat(6, 1fr); gap:22px 18px;
+  --cols:6; --gap:18px;
+  display:flex; flex-wrap:wrap; justify-content:center; gap:26px var(--gap);
 }
-.theme{ margin:0; }
+/* Flex y no grid: con 11 apariencias, la última fila queda centrada en vez de dejar un hueco. */
+.theme{ margin:0; flex:0 0 calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols)); }
 .theme .shot{
   position:relative; aspect-ratio:420/512; overflow:hidden; border-radius:16px;
   border:1px solid rgba(255,255,255,.1); box-shadow:0 24px 48px -26px rgba(0,0,0,.8);
@@ -231,7 +233,7 @@ footer a:hover{ color:var(--gold); border-bottom-color:var(--gold); }
 
 /* ---------- responsive ---------- */
 @media (max-width:1040px){
-  .themes{ grid-template-columns:repeat(4, 1fr); }
+  .themes{ --cols:4; }
   .events-grid{ gap:56px; }
   .fact-grid, .widgets-grid{ gap:48px; }
 }
@@ -254,7 +256,7 @@ footer a:hover{ color:var(--gold); border-bottom-color:var(--gold); }
   .fact-grid, .events-grid, .widgets-grid, .plans{ grid-template-columns:1fr; gap:44px; }
   .events-grid{ justify-items:center; }
   .events-grid > div:last-child{ justify-self:stretch; }
-  .themes{ grid-template-columns:repeat(2, 1fr); gap:20px 14px; }
+  .themes{ --cols:2; --gap:14px; gap:22px var(--gap); }
   .privacy-row{ grid-template-columns:1fr; }
   .plan{ padding:30px 26px; }
   .closing{ padding:76px 0 64px; }
