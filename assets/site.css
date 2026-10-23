@@ -234,6 +234,9 @@ section + section{ border-top:1px solid var(--rule); }
 .closing .lede{ margin:0 auto 34px; }
 
 /* ---------- pie ---------- */
+.follow{ margin-top:22px; font-size:15px; color:var(--ink3); }
+.follow a{ color:var(--gold); border-bottom:1px solid rgba(201,169,105,.45); }
+.follow a:hover{ border-bottom-color:var(--gold); }
 footer{ border-top:1px solid var(--rule); padding:26px 0 34px; font-size:13px; color:var(--ink3); }
 footer .wrap{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
 footer a{ color:var(--ink3); border-bottom:1px solid rgba(106,103,96,.4); }
